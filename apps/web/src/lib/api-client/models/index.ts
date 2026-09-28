@@ -9,6 +9,8 @@
 export * from './authControllerCallbackParams';
 export * from './authControllerLoginParams';
 export * from './authMeResponseDto';
+export * from './categoryDto';
+export * from './createCategoryDto';
 export * from './createTaskDto';
 export * from './createTaskDtoPriority';
 export * from './createUserDto';
@@ -35,6 +37,7 @@ export * from './tasksControllerFindAllPriority';
 export * from './tasksControllerFindAllSortBy';
 export * from './tasksControllerFindAllSortOrder';
 export * from './tasksControllerFindAllStatus';
+export * from './updateCategoryDto';
 export * from './updateSelfUserDto';
 export * from './updateTaskDto';
 export * from './updateTaskDtoPriority';

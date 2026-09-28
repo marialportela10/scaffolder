@@ -55,10 +55,12 @@ model Session {
   @@index([expiresAt])
   @@map("sessions")
 }
+
 //A parte da categoria
 model Category {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String   @unique
+  color     String?   @default("#FFFFFF")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tasks     Task[]
