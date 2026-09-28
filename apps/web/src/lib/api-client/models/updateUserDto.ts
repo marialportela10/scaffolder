@@ -9,7 +9,7 @@ import type { UpdateUserDtoRole } from './updateUserDtoRole';
 
 export interface UpdateUserDto {
   /**
-     * @minLength 2
+     * @minLength 3
      * @maxLength 120
      */
   name?: string;

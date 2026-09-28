@@ -14,14 +14,14 @@ import {
 import { PaginatedResponseDto } from '../common/dto/pagination.dto';
 
 export class CreateUserDto {
-  @ApiProperty({ example: 'Ada Lovelace', minLength: 2, maxLength: 120 })
+  @ApiProperty({ example: 'Maria Luiza', minLength: 2, maxLength: 120 })
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim() : value))
   @IsString({ message: 'Nome deve ser um texto.' })
   @MinLength(2, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
   @MaxLength(120, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
   name!: string;
 
-  @ApiProperty({ example: 'ada@example.com', maxLength: 254 })
+  @ApiProperty({ example: 'maru@example.com', maxLength: 254 })
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim().toLowerCase() : value))
   @IsEmail({}, { message: 'E-mail inválido.' })
   @MaxLength(254, { message: 'E-mail inválido.' })
@@ -33,15 +33,15 @@ export class CreateUserDto {
 }
 
 export class UpdateUserDto {
-  @ApiPropertyOptional({ example: 'Ada Lovelace', minLength: 2, maxLength: 120 })
+  @ApiPropertyOptional({ example: 'Maria Luiza', minLength: 3, maxLength: 120 })
   @IsOptional()
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim() : value))
   @IsString({ message: 'Nome deve ser um texto.' })
-  @MinLength(2, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
-  @MaxLength(120, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
+  @MinLength(3, { message: 'Nome deve possuir entre 3 e 120 caracteres.' })
+  @MaxLength(120, { message: 'Nome deve possuir entre 3 e 120 caracteres.' })
   name?: string;
 
-  @ApiPropertyOptional({ example: 'ada@example.com', maxLength: 254 })
+  @ApiPropertyOptional({ example: 'maru@example.com', maxLength: 254 })
   @IsOptional()
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim().toLowerCase() : value))
   @IsEmail({}, { message: 'E-mail inválido.' })
@@ -55,11 +55,11 @@ export class UpdateUserDto {
 }
 
 export class UpdateSelfUserDto {
-  @ApiProperty({ example: 'Ada Lovelace', minLength: 2, maxLength: 120 })
+  @ApiProperty({ example: 'Maria Luiza', minLength: 3, maxLength: 120 })
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim() : value))
   @IsString({ message: 'Nome deve ser um texto.' })
-  @MinLength(2, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
-  @MaxLength(120, { message: 'Nome deve possuir entre 2 e 120 caracteres.' })
+  @MinLength(3, { message: 'Nome deve possuir entre 3 e 120 caracteres.' })
+  @MaxLength(120, { message: 'Nome deve possuir entre 3 e 120 caracteres.' })
   name!: string;
 }
 
@@ -73,10 +73,10 @@ export class ManagedUserDto {
   @ApiProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   id!: string;
 
-  @ApiProperty({ example: 'Ada Lovelace' })
+  @ApiProperty({ example: 'Maria Luiza' })
   name!: string;
 
-  @ApiProperty({ example: 'ada@example.com' })
+  @ApiProperty({ example: 'maru@example.com' })
   email!: string;
 
   @ApiProperty({ enum: UserRole, example: UserRole.USER })

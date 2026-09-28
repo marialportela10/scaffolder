@@ -6,10 +6,13 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface UpdateSelfUserDto {
+export interface UpdateCategoryDto {
   /**
-     * @minLength 3
-     * @maxLength 120
+     * Nome da categoria
+     * @minLength 2
+     * @maxLength 50
      */
-  name: string;
+  name?: string;
+  /** Cor em hexadecimal */
+  color?: string;
 }
