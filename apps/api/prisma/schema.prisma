@@ -55,6 +55,16 @@ model Session {
   @@index([expiresAt])
   @@map("sessions")
 }
+//A parte da categoria
+model Category {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tasks     Task[]
+
+  @@map("categories")
+}
 
 model Task {
   id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
@@ -64,12 +74,18 @@ model Task {
   priority    TaskPriority @default(MEDIUM)
   dueDate     DateTime?
   ownerId     String       @db.Uuid
+  
+  //Conexão da categoria
+  categoryId  String?      @db.Uuid
+  category    Category?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
   deletedAt   DateTime?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   owner       UserProfile  @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
   @@index([ownerId])
+  @@index([categoryId])
   @@index([deletedAt])
   @@index([status])
   @@map("tasks")
